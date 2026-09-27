@@ -1,3 +1,4 @@
+import LocalTime from "@/components/LocalTime";
 import Reveal from "@/components/Reveal";
 import { profile } from "@/content/site";
 
@@ -58,10 +59,13 @@ export default function Hero() {
             <span className="pulse-dot" aria-hidden="true" />
             {profile.status}
           </span>
-          <a href="#about" className="eyebrow flex items-center gap-2 hover:text-ink">
-            Scroll
-            <span aria-hidden="true">&darr;</span>
-          </a>
+          <div className="flex items-center gap-8">
+            <LocalTime />
+            <a href="#about" className="eyebrow flex items-center gap-2 hover:text-ink">
+              Scroll
+              <span aria-hidden="true">&darr;</span>
+            </a>
+          </div>
         </Reveal>
       </div>
     </section>

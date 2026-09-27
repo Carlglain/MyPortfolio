@@ -95,6 +95,28 @@ export const stack = [
   },
 ];
 
+// Merged pull requests into Nkwa production repos per month (GitHub, Sep 2026).
+export const shippingLog = {
+  total: 113,
+  promotedAt: "2026-02",
+  months: [
+    { month: "2025-08", count: 12 },
+    { month: "2025-09", count: 5 },
+    { month: "2025-10", count: 8 },
+    { month: "2025-11", count: 9 },
+    { month: "2025-12", count: 5 },
+    { month: "2026-01", count: 1 },
+    { month: "2026-02", count: 3 },
+    { month: "2026-03", count: 18 },
+    { month: "2026-04", count: 8 },
+    { month: "2026-05", count: 7 },
+    { month: "2026-06", count: 9 },
+    { month: "2026-07", count: 9 },
+    { month: "2026-08", count: 1 },
+    { month: "2026-09", count: 18 },
+  ],
+};
+
 export type Work = {
   title: string;
   kind: string;
@@ -102,6 +124,10 @@ export type Work = {
   tags: string[];
   href?: string;
   linkLabel?: string;
+  /** First image is the main shot; a second one peeks out behind it. */
+  images?: { src: string; alt: string; width: number; height: number }[];
+  /** Show the image whole on a tinted panel instead of as a screenshot (logos). */
+  imageFit?: "contain";
 };
 
 export const nkwaWork: Work[] = [
@@ -142,13 +168,25 @@ export const projects: Work[] = [
     summary:
       "A financial-education storefront with Supabase asset storage and Cal.com scheduling, deployed to Vercel for client review.",
     tags: ["Next.js", "TypeScript", "Supabase", "Cal.com"],
+    href: "https://the-rose-edit.vercel.app/",
+    linkLabel: "Visit site",
+    images: [
+      { src: "/projects/roseaudit-home.png", alt: "RoseAudit coaching page with a booking call to action", width: 1096, height: 689 },
+      { src: "/projects/roseaudit-booking.png", alt: "RoseAudit session booking calendar powered by Cal.com", width: 1033, height: 715 },
+    ],
   },
   {
     title: "PneumoScan AI",
     kind: "Pneumonia detection",
     summary:
-      "A chest X-ray classifier with a FastAPI inference service and a Next.js interface for image upload and prediction review.",
-    tags: ["Python", "PyTorch", "EfficientNet-B0", "FastAPI"],
+      "A chest X-ray classifier with a FastAPI inference service and a Next.js interface for upload, Grad-CAM explainability and scan history.",
+    tags: ["Python", "PyTorch", "EfficientNet-B0", "FastAPI", "Next.js"],
+    href: "https://pneumoniascan-frontend.vercel.app/",
+    linkLabel: "Visit site",
+    images: [
+      { src: "/projects/pneumoscan-home.png", alt: "PneumoScan AI home page for chest X-ray analysis", width: 1510, height: 762 },
+      { src: "/projects/pneumoscan-history.png", alt: "PneumoScan AI scan history with diagnoses and model confidence", width: 925, height: 579 },
+    ],
   },
   {
     title: "MottoFix",
@@ -158,6 +196,8 @@ export const projects: Work[] = [
     tags: ["React Native", "Expo", "Express", "Firebase"],
     href: "https://github.com/Carlglain/MottoFix",
     linkLabel: "View code",
+    images: [{ src: "/projects/mottofix-logo.png", alt: "MottoFix logo", width: 800, height: 466 }],
+    imageFit: "contain",
   },
 ];
 

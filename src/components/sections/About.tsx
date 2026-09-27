@@ -1,5 +1,6 @@
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import ShippingLog from "@/components/ShippingLog";
 import { about, education } from "@/content/site";
 
 export default function About() {
@@ -37,6 +38,8 @@ export default function About() {
             ))}
           </div>
         </div>
+
+        <ShippingLog />
       </div>
     </section>
   );
