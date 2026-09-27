@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 import { nav, profile } from "@/content/site";
 
+import ThemeToggle from "./ThemeToggle";
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
@@ -61,6 +63,7 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <a href={profile.cvPath} download className="btn btn-solid !py-2.5 text-sm">
               <span>Download CV</span>
             </a>

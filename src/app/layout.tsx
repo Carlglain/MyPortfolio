@@ -33,10 +33,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <head>
-        {/* Skip the intro splash on repeat visits and for reduced motion, before first paint. */}
+        {/* Before first paint: restore the saved theme (light by default) and skip
+            the intro splash on repeat visits or for reduced motion. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(sessionStorage.getItem("splash-seen")==="1"||matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.dataset.splash="skip"}catch(e){}`,
+            __html: `try{var d=document.documentElement;d.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light";if(sessionStorage.getItem("splash-seen")==="1"||matchMedia("(prefers-reduced-motion: reduce)").matches)d.dataset.splash="skip"}catch(e){}`,
           }}
         />
       </head>
